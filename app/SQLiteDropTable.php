@@ -20,14 +20,23 @@ class SQLiteDropTable {
   /**
    * create tables 
    */
-  public function dropTables() {
-      // ROWID is sqlite AUTO_INCREMENT automatially inserted in primary key
-      $commands = ['DROP TABLE IF EXISTS nation_trip',];
+//   public function dropTables() {
+//       // ROWID is sqlite AUTO_INCREMENT automatially inserted in primary key
+//       $commands = ['DROP TABLE IF EXISTS nation_trip',];
                                               
-      // execute the sql commands to create new tables
-      foreach ($commands as $command) {
-          $this->pdo->exec($command);
-      }
-  }
+//       // execute the sql commands to create new tables
+//       foreach ($commands as $command) {
+//           $this->pdo->exec($command);
+//       }
+//   }
+public function dropTables() {
+    // ROWID is sqlite AUTO_INCREMENT automatially inserted in primary key
+    $commands = ['DROP TABLE IF EXISTS trips',];
+                                            
+    // execute the sql commands to create new tables
+    foreach ($commands as $command) {
+        $this->pdo->exec($command);
+    }
+}
 
 }

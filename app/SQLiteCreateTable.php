@@ -23,7 +23,7 @@ class SQLiteCreateTable {
   public function createTables() {
       // ROWID is sqlite AUTO_INCREMENT automatially inserted in primary key
       $commands = ['CREATE TABLE IF NOT EXISTS nations (
-                      id   SMALLINT PRIMARY KEY,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       -- if a leave blank instead NOT NULL is like to set NULL
                       name varchar(50) NOT NULL,
                       latitude FLOAT(3,6) NOT NULL,
@@ -31,14 +31,14 @@ class SQLiteCreateTable {
                     )',
 
                   'CREATE TABLE IF NOT EXISTS trips (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       title varchar(250) NOT NULL,
                       description TEXT,
                       motto TEXT
                     )',
 
                   'CREATE TABLE IF NOT EXISTS nation_trip (
-                      id BIGINT PRIMARY KEY UNIQUE,
+                      id INTEGER PRIMARY KEY AUTOINCREMENT,
                       trip_id  BIGINT NOT NULL,
                       nation_id  BIGINT NOT NULL,
                       FOREIGN KEY (trip_id)
@@ -49,7 +49,7 @@ class SQLiteCreateTable {
                                               ON DELETE CASCADE)',
 
                   'CREATE TABLE IF NOT EXISTS foods (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       trip_id  BIGINT,
                       name VARCHAR(150) NOT NULL,
                       description TEXT,
@@ -59,7 +59,7 @@ class SQLiteCreateTable {
                     )',
 
                   'CREATE TABLE IF NOT EXISTS food_places (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       trip_id  BIGINT,
                       name VARCHAR(150) NOT NULL,
                       image VARCHAR(250),
@@ -72,7 +72,7 @@ class SQLiteCreateTable {
                     )',
 
                   'CREATE TABLE IF NOT EXISTS food_food_place (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       food_id  BIGINT,
                       food_place_id BIGINT,
                       FOREIGN KEY (food_id)
@@ -84,7 +84,7 @@ class SQLiteCreateTable {
                     )',
                   
                   'CREATE TABLE IF NOT EXISTS days (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       trip_id  BIGINT NOT NULL,
                       datetime DATETIME NOT NULL,
                       day_name VARCHAR(10) NOT NULL,
@@ -94,7 +94,7 @@ class SQLiteCreateTable {
                     )',
                     
                   'CREATE TABLE IF NOT EXISTS stops (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       day_id BIGINT NOT NULL,
                       title VARCHAR(150) NOT NULL,
                       description TEXT,
@@ -108,7 +108,7 @@ class SQLiteCreateTable {
                     )',
 
                   'CREATE TABLE IF NOT EXISTS notes (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       stop_id BIGINT,
                       title VARCHAR(150),
                       text TEXT NOT NULL,
@@ -118,7 +118,7 @@ class SQLiteCreateTable {
                     )',
                   
                   'CREATE TABLE IF NOT EXISTS participants (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       name VARCHAR(100) NOT NULL,
                       surname VARCHAR(100) NOT NULL,
                       nickname VARCHAR(100),
@@ -126,7 +126,7 @@ class SQLiteCreateTable {
                     )',
                   
                   'CREATE TABLE IF NOT EXISTS participant_trip (
-                      id   BIGINT PRIMARY KEY UNIQUE,
+                      id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       trip_id BIGINT,
                       participant_id BIGINT,
                       FOREIGN KEY (trip_id)
