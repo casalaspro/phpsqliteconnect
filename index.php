@@ -17,6 +17,7 @@ use App\SQLiteConnection as SQLiteConnection;
 use App\SQLiteCreateTable;
 use App\SQLiteDropTable;
 use App\SQLiteInsert;
+use App\SQLiteInsertNations;
 
 // $dropTable = new SQLiteDropTable((new SQLiteConnection())->connect());
 // $dropTable->dropTables();
@@ -26,8 +27,8 @@ $sqlite = new SQLiteCreateTable((new SQLiteConnection())->connect());
 $sqlite->createTables();
 // get the table list
 // $tables = $sqlite->getTableList();
-$sqliteInsert = new SQLiteInsert((new SQLiteConnection())->connect());
-$newTrip = $sqliteInsert->insertTrip("Viaggio in Australia", "Un viaggio nella terra di pericoli tremendi ed affascinanti paesaggi.", "Hai controllato se ci sono ragni?");
+// $sqliteInsert = new SQLiteInsert((new SQLiteConnection())->connect());
+// $newTrip = $sqliteInsert->insertTrip("Viaggio in Australia", "Un viaggio nella terra di pericoli tremendi ed affascinanti paesaggi.", "Hai controllato se ci sono ragni?");
 
 ?>
 <!DOCTYPE html>

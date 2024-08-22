@@ -26,8 +26,9 @@ class SQLiteCreateTable {
                       id   INTEGER PRIMARY KEY AUTOINCREMENT,
                       -- if a leave blank instead NOT NULL is like to set NULL
                       name varchar(50) NOT NULL,
-                      latitude FLOAT(3,6) NOT NULL,
-                      longitude FLOAT(3,6) NOT NULL
+                      alpha_3 varchar(3) NOT NULL,
+                      latitude FLOAT(3,6),
+                      longitude FLOAT(3,6)
                     )',
 
                   'CREATE TABLE IF NOT EXISTS trips (
