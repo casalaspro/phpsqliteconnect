@@ -26,7 +26,7 @@ class SQLiteGetNations {
      * @return type
      */
     public function getNations() {
-      $stmt = $this->pdo->query('SELECT id, title, description, motto '
+      $stmt = $this->pdo->query('SELECT id, name, alpha_3, latitude, longitude '
               . 'FROM nations');
       $nations = $stmt->fetchAll(\PDO::FETCH_ASSOC);
       // $nations = [];
